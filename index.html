@@ -26,17 +26,19 @@
 
 <section class="bg-green-500 text-white text-center py-7 px-4"><h2 class="black text-2xl">UNE QUESTION? 💬</h2><p class="text-sm">On te répond en 2 min sur WhatsApp</p><a id="waBottom" class="inline-block mt-3 bg-white text-black px-7 py-3 rounded-full font-bold text-sm">DISCUTER SUR WHATSAPP</a></section>
 
-<!-- POPUP OFFRE 2 SACS -->
-<div id="offerPopup" class="fixed inset-0 bg-black/70 hidden z-[100] flex items-end md:items-center justify-center p-4" onclick="if(event.target==this) closeOffer()">
-<div class="bg-white rounded-3xl w-full max-w-lg max-h-[90vh] overflow-y-auto p-5">
-<div class="flex justify-between items-center"><h3 class="black text-2xl">2 Sacs = 399 DH 💖</h3><button onclick="closeOffer()" class="bg-black text-white w-8 h-8 rounded-full">✕</button></div>
-<p class="text-sm text-neutral-600 mt-1">Choisis tes 2 sacs, comme tu veux. Tu peux mixer NOUR + LINA, et n'importe quelles couleurs.</p>
+<!-- POPUP OFFRE 2 SACS - GRID 6 IMAGES -->
+<div id="offerPopup" class="fixed inset-0 bg-black/70 hidden z-[100] flex items-end md:items-center justify-center p-3" onclick="if(event.target==this) closeOffer()">
+<div class="bg-white rounded-3xl w-full max-w-lg max-h-[92vh] overflow-y-auto p-4">
+<div class="flex justify-between items-center"><h3 class="black text-xl">2 Sacs = 399 DH 💖</h3><button onclick="closeOffer()" class="bg-black text-white w-8 h-8 rounded-full">✕</button></div>
+<p class="text-xs text-neutral-600 mt-1">Khtari 2 sacs - Klik 3la Sac 1, w 3la Sac 2. Tu peux mixer NOUR + LINA.</p>
 
-<div class="mt-4 bg-pink-50 border rounded-2xl p-3"><b>Sac 1 - Choisis ton modèle</b><div class="flex gap-2 mt-2"><button onclick="setSac(1,'NOUR')" id="s1nour" class="flex-1 border-2 border-black rounded-full py-2 font-bold bg-black text-white">NOUR</button><button onclick="setSac(1,'LINA')" id="s1lina" class="flex-1 border-2 border-black rounded-full py-2 font-bold bg-white">LINA</button></div><p class="text-xs mt-2 font-bold">Couleur Sac 1:</p><div id="colors1" class="flex flex-wrap gap-2 mt-1"></div></div>
+<p class="font-bold mt-4 text-sm">👉 SAC 1 - Khtari wa7ed:</p>
+<div id="grid1" class="grid grid-cols-2 gap-2 mt-2"></div>
 
-<div class="mt-3 bg-yellow-50 border rounded-2xl p-3"><b>Sac 2 - Choisis ton modèle</b><div class="flex gap-2 mt-2"><button onclick="setSac(2,'NOUR')" id="s2nour" class="flex-1 border-2 border-black rounded-full py-2 font-bold bg-white">NOUR</button><button onclick="setSac(2,'LINA')" id="s2lina" class="flex-1 border-2 border-black rounded-full py-2 font-bold bg-black text-white">LINA</button></div><p class="text-xs mt-2 font-bold">Couleur Sac 2:</p><div id="colors2" class="flex flex-wrap gap-2 mt-1"></div></div>
+<p class="font-bold mt-4 text-sm">👉 SAC 2 - Khtari wa7ed:</p>
+<div id="grid2" class="grid grid-cols-2 gap-2 mt-2"></div>
 
-<div class="mt-3 bg-green-50 border rounded-2xl p-3 text-center text-sm font-bold">Ton choix: <span id="summary">NOUR Noir 🖤 + LINA Beige Clair ✨</span><br><span class="text-xs">Prix: 399 DH • Livraison 20 DH partout au Maroc 🚚</span></div>
+<div class="mt-3 bg-green-50 border rounded-2xl p-3 text-center text-sm font-bold">Ton choix: <span id="summary">NOUR Noir + LINA Beige Clair</span><br><span class="text-xs font-normal">Prix: 399 DH • Livraison 20 DH partout au Maroc 🚚 التوصيل 20 درهم</span></div>
 
 <div class="grid gap-2 mt-3"><input id="oNom" placeholder="Ton prénom" class="border rounded-full px-4 py-3"><input id="oTel" placeholder="Téléphone" class="border rounded-full px-4 py-3"><input id="oVille" placeholder="Ville" class="border rounded-full px-4 py-3"></div>
 <a id="oWa" target="_blank" class="block text-center bg-green-500 text-white py-4 rounded-full font-bold mt-3 border-2 border-black">COMMANDER MES 2 SACS - 399 DH 💬</a>
@@ -52,14 +54,30 @@ let s=86399;setInterval(()=>{s--;const h=String(Math.floor(s/3600)).padStart(2,'
 </script><script>
 function openOffer(){document.getElementById('offerPopup').classList.remove('hidden');}
 function closeOffer(){document.getElementById('offerPopup').classList.add('hidden');}
-let sac1={model:'NOUR',color:'Noir'}, sac2={model:'LINA',color:'Beige Clair'};
-const COLORS_MAP={NOUR:['Noir','Bordeaux','Beige'], LINA:['Noir','Marron','Beige Clair']};
-function renderColors(){
-  ['1','2'].forEach(n=>{
-    const wrap=document.getElementById('colors'+n); wrap.innerHTML='';
-    const model = n=='1'?sac1.model:sac2.model;
-    COLORS_MAP[model].forEach(c=>{
-      const b=document.createElement('button'); b.textContent=c; const sel=(n=='1'?sac1.color:sac2.color)==c; b.className='px-3 py-1.5 rounded-full border-2 text-sm font-bold '+(sel?'bg-black text-white border-black':'bg-white border-neutral-300'); b.onclick=()=>{ if(n=='1') sac1.color=c; else sac2.color=c; renderColors(); updateSummary(); }; wrap.appendChild(b);
+const ALL_SACS=[
+{id:'nour-noir',model:'NOUR',color:'Noir',img:'https://images.unsplash.com/photo-1548036328-c9fa89d128fa?w=600&q=80',stock:5},
+{id:'nour-bordeaux',model:'NOUR',color:'Bordeaux',img:'https://images.unsplash.com/photo-1584917865442-de89df76afd3?w=600&q=80',stock:4},
+{id:'nour-beige',model:'NOUR',color:'Beige',img:'https://images.unsplash.com/photo-1590874103328-eac38a683ce7?w=600&q=80',stock:3},
+{id:'lina-noir',model:'LINA',color:'Noir',img:'https://images.unsplash.com/photo-1566150905458-1bf1fc113f0d?w=600&q=80',stock:4},
+{id:'lina-marron',model:'LINA',color:'Marron',img:'https://images.unsplash.com/photo-1591561954557-26941169b49e?w=600&q=80',stock:3},
+{id:'lina-beige',model:'LINA',color:'Beige Clair',img:'https://images.unsplash.com/photo-1590739225287-bd31519780c3?w=600&q=80',stock:3}
+];
+let sac1=ALL_SACS[0], sac2=ALL_SACS[5];
+function renderGrid(){
+  ['grid1','grid2'].forEach((gid, idx)=>{
+    const wrap=document.getElementById(gid); wrap.innerHTML='';
+    ALL_SACS.forEach(s=>{
+      const sel = idx==0 ? sac1.id==s.id : sac2.id==s.id;
+      const d=document.createElement('button'); d.className='text-left rounded-2xl overflow-hidden border-2 '+(sel?'border-[#FF2E88] shadow-[0_0_0_2px_#FF2E88]':'border-neutral-200');
+      d.innerHTML=`<img src="${s.img}" class="w-full h-28 object-cover"><div class="p-2 bg-white"><b class="text-xs">${s.model} - ${s.color}</b><p class="text-[11px] text-neutral-500">En stock: ${s.stock} • ${sel?'✅ Choisi':'Cliquer'}</p></div>`;
+      d.onclick=()=>{ if(idx==0) sac1=s; else sac2=s; renderGrid(); updateSummary(); };
+      wrap.appendChild(d);
+    });
+  });
+}
+function updateSummary(){ document.getElementById('summary').textContent=sac1.model+' '+sac1.color+' + '+sac2.model+' '+sac2.color; const nom=document.getElementById('oNom').value, tel=document.getElementById('oTel').value, ville=document.getElementById('oVille').value; const msg=`Bonjour NURA, je veux l'offre 2 Sacs = 399 DH - Sac 1: ${sac1.model} ${sac1.color} - Sac 2: ${sac2.model} ${sac2.color} - Nom: ${nom} - Ville: ${ville} - Tel: ${tel} - Livraison 20 DH`; document.getElementById('oWa').href=waLink(msg); }
+['oNom','oTel','oVille'].forEach(id=>document.getElementById(id).addEventListener('input',updateSummary));
+renderGrid(); updateSummary(); }; wrap.appendChild(b);
     });
   });
 }
