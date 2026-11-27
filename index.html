@@ -1,4 +1,4 @@
-<!DOCTYPE html><html lang="fr"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Accueil - NURA</title><script src="https://cdn.tailwindcss.com"></script><link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Inter:wght@500;600;700;800&display=swap" rel="stylesheet"><script src="config.js"></script><style>body{font-family:Inter,sans-serif;background:#FFF7F9}h1,h2,.black{font-family:'Archivo Black',sans-serif}.marquee{animation:m 16s linear infinite}@keyframes m{from{transform:translateX(0)}to{transform:translateX(-50%)}}.card{transition:.3s}.card:hover{transform:translateY(-3px)}.swatch{width:36px;height:36px;border-radius:9999px;border:2px solid white;box-shadow:0 0 0 1.5px #ddd;cursor:pointer}.swatch.active{box-shadow:0 0 0 2.5px #FF2E88}</style></head><body>
+<!DOCTYPE html><html lang="fr"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Accueil - NURA</title><script src="https://cdn.tailwindcss.com"></script><link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Inter:wght@500;600;700;800&display=swap" rel="stylesheet"><script src="config.js"></script><script>if(typeof waLink==="undefined"){window.waLink=function(m){return "https://wa.me/212600000000?text="+encodeURIComponent(m);};}</script><style>body{font-family:Inter,sans-serif;background:#FFF7F9}h1,h2,.black{font-family:'Archivo Black',sans-serif}.marquee{animation:m 16s linear infinite}@keyframes m{from{transform:translateX(0)}to{transform:translateX(-50%)}}.card{transition:.3s}.card:hover{transform:translateY(-3px)}.swatch{width:36px;height:36px;border-radius:9999px;border:2px solid white;box-shadow:0 0 0 1.5px #ddd;cursor:pointer}.swatch.active{box-shadow:0 0 0 2.5px #FF2E88}</style></head><body>
 <header class="flex justify-between items-center px-4 py-3 sticky top-0 bg-white/95 backdrop-blur z-50"><a href="index.html" class="black text-2xl">NURA <span class="text-[#FF2E88]">💖</span></a><div class="flex gap-2"><a href="nour.html" class="bg-black text-white px-3 py-1.5 rounded-full text-sm font-bold">NOUR</a><a href="lina.html" class="bg-black text-white px-3 py-1.5 rounded-full text-sm font-bold">LINA</a></div><a id="waTop" class="bg-green-500 text-white px-3 py-1.5 rounded-full text-sm font-bold">WhatsApp</a></header>
 
 <section class="px-4 pt-5 pb-6 max-w-6xl mx-auto text-center">
@@ -18,7 +18,7 @@
 <a href="lina.html" class="card bg-white rounded-3xl overflow-hidden border border-neutral-200 shadow-sm"><img src="https://images.unsplash.com/photo-1566150905458-1bf1fc113f0d?w=900&q=80" class="w-full h-64 object-cover"><div class="p-4"><div class="flex justify-between items-center"><h3 class="black text-2xl">LINA</h3><span class="bg-black text-white px-3 py-1 rounded-full font-bold text-sm">249 DH</span></div><p class="text-sm text-neutral-600 mt-1">Chic & spacieux • 25x20cm • 3 couleurs</p><div class="flex gap-1.5 mt-2 items-center"><span class="swatch" style="background:#1A1A1A"></span><span class="swatch" style="background:#7A4A2B"></span><span class="swatch" style="background:#E8DCC8"></span><span class="text-xs ml-1">Noir • Marron • Beige Clair</span></div><div class="bg-[#FF2E88] text-white text-center py-3 rounded-full font-bold mt-3 text-sm">VOIR LINA →</div></div></a>
 </div></section>
 
-<section class="mx-4 mb-6 bg-black text-white rounded-3xl p-6 text-center"><h2 class="black text-3xl">2 SACS = 399 DH 😱</h2><p class="mt-2 text-white/80 text-sm">Au lieu de 498 DH, tu économises 100 DH. NOUR + LINA.</p><p class="mt-2 text-yellow-300 font-bold text-sm">⏰ Offre: <span id="timer">23:59:59</span></p><button onclick="openOffer()" class="inline-block mt-4 bg-[#FF2E88] text-white px-7 py-3 rounded-full font-bold">JE VEUX LES 2 💖 - CHOISIR MES 2 SACS 👇</button><p class="text-xs mt-2 text-white/70">Tu peux mixer: NOUR Noir + LINA Beige, ou n'importe quelle combinaison 💖</p></section>
+<section class="mx-4 mb-6 bg-black text-white rounded-3xl p-6 text-center"><h2 class="black text-3xl">2 SACS = 399 DH 😱</h2><p class="mt-2 text-white/80 text-sm">Au lieu de 498 DH, tu économises 100 DH. NOUR + LINA.</p><p class="mt-2 text-yellow-300 font-bold text-sm">⏰ Offre: <span id="timer">23:59:59</span></p><button onclick="document.getElementById('offerPopup').classList.remove('hidden'); if(typeof openOffer==='function'){try{openOffer();}catch(e){}}" class="inline-block mt-4 bg-[#FF2E88] text-white px-7 py-3 rounded-full font-bold">JE VEUX LES 2 💖 - CHOISIR MES 2 SACS 👇</button><p class="text-xs mt-2 text-white/70">Tu peux mixer: NOUR Noir + LINA Beige, ou n'importe quelle combinaison 💖</p></section>
 
 <section class="px-4 pb-6 max-w-6xl mx-auto"><h2 class="black text-2xl text-center">QUELLE COULEUR T'ES TOI? 🎨</h2><div class="bg-white rounded-3xl border border-neutral-200 p-4 mt-4 grid md:grid-cols-2 gap-4 items-center"><img id="cImg" src="https://images.unsplash.com/photo-1548036328-c9fa89d128fa?w=900&q=80" class="rounded-2xl w-full h-72 object-cover"><div><h3 id="cName" class="black text-xl">Noir - NOUR 🖤</h3><p class="text-sm text-neutral-600 mt-1">Clique sur une couleur, la photo change vraiment.</p><div class="flex gap-2 mt-3" id="cBtns"></div><p id="cStock" class="text-xs mt-2 text-green-700 font-bold">En stock: 5 pcs</p><a href="nour.html" class="inline-block mt-3 bg-black text-white px-5 py-3 rounded-full font-bold text-sm">COMMANDER CETTE COULEUR</a></div></div></section>
 
@@ -27,9 +27,9 @@
 <section class="bg-green-500 text-white text-center py-7 px-4"><h2 class="black text-2xl">UNE QUESTION? 💬</h2><p class="text-sm">On te répond en 2 min sur WhatsApp</p><a id="waBottom" class="inline-block mt-3 bg-white text-black px-7 py-3 rounded-full font-bold text-sm">DISCUTER SUR WHATSAPP</a></section>
 
 <!-- POPUP OFFRE 2 SACS - GRID 6 IMAGES -->
-<div id="offerPopup" class="fixed inset-0 bg-black/70 hidden z-[100] flex items-end md:items-center justify-center p-3" onclick="if(event.target==this) closeOffer()">
+<div id="offerPopup" class="fixed inset-0 bg-black/70 hidden z-[100] flex items-end md:items-center justify-center p-3" onclick="if(event.target==this){this.classList.add('hidden');}">
 <div class="bg-white rounded-3xl w-full max-w-lg max-h-[92vh] overflow-y-auto p-4">
-<div class="flex justify-between items-center"><h3 class="black text-xl">2 Sacs = 399 DH 💖</h3><button onclick="closeOffer()" class="bg-black text-white w-8 h-8 rounded-full">✕</button></div>
+<div class="flex justify-between items-center"><h3 class="black text-xl">2 Sacs = 399 DH 💖</h3><button onclick="document.getElementById('offerPopup').classList.add('hidden')" class="bg-black text-white w-8 h-8 rounded-full">✕</button></div>
 <p class="text-xs text-neutral-600 mt-1">Khtari 2 sacs - Klik 3la Sac 1, w 3la Sac 2. Tu peux mixer NOUR + LINA.</p>
 
 <p class="font-bold mt-4 text-sm">👉 SAC 1 - Khtari wa7ed:</p>
@@ -42,7 +42,7 @@
 
 <div class="grid gap-2 mt-3"><input id="oNom" placeholder="Ton prénom" class="border rounded-full px-4 py-3"><input id="oTel" placeholder="Téléphone" class="border rounded-full px-4 py-3"><input id="oVille" placeholder="Ville" class="border rounded-full px-4 py-3"></div>
 <a id="oWa" target="_blank" class="block text-center bg-green-500 text-white py-4 rounded-full font-bold mt-3 border-2 border-black">COMMANDER MES 2 SACS - 399 DH 💬</a>
-<button onclick="closeOffer()" class="w-full text-center py-2 text-sm text-neutral-500">Fermer</button>
+<button onclick="document.getElementById('offerPopup').classList.add('hidden')" class="w-full text-center py-2 text-sm text-neutral-500">Fermer</button>
 </div></div>
 
 <footer class="text-center py-4 text-xs text-neutral-500">NURA • Livraison partout au Maroc - 20 DH • Paiement à la livraison</footer>
@@ -64,27 +64,25 @@ const ALL_SACS=[
 ];
 let sac1=ALL_SACS[0], sac2=ALL_SACS[5];
 function renderGrid(){
-  ['grid1','grid2'].forEach((gid, idx)=>{
-    const wrap=document.getElementById(gid); wrap.innerHTML='';
-    ALL_SACS.forEach(s=>{
-      const sel = idx==0 ? sac1.id==s.id : sac2.id==s.id;
-      const d=document.createElement('button'); d.className='text-left rounded-2xl overflow-hidden border-2 '+(sel?'border-[#FF2E88] shadow-[0_0_0_2px_#FF2E88]':'border-neutral-200');
-      d.innerHTML=`<img src="${s.img}" class="w-full h-28 object-cover"><div class="p-2 bg-white"><b class="text-xs">${s.model} - ${s.color}</b><p class="text-[11px] text-neutral-500">En stock: ${s.stock} • ${sel?'✅ Choisi':'Cliquer'}</p></div>`;
-      d.onclick=()=>{ if(idx==0) sac1=s; else sac2=s; renderGrid(); updateSummary(); };
+  ['grid1','grid2'].forEach(function(gid, idx){
+    var wrap=document.getElementById(gid); if(!wrap) return; wrap.innerHTML='';
+    ALL_SACS.forEach(function(s){
+      var sel = idx==0 ? sac1.id==s.id : sac2.id==s.id;
+      var d=document.createElement('button'); d.className='text-left rounded-2xl overflow-hidden border-2 '+(sel?'border-[#FF2E88]':'border-neutral-200');
+      d.innerHTML='<img src="'+s.img+'" class="w-full h-28 object-cover"><div class="p-2 bg-white"><b class="text-xs">'+s.model+' - '+s.color+'</b><p class="text-[11px] text-neutral-500">En stock: '+s.stock+' - '+(sel?'✅ Choisi':'Cliquer')+'</p></div>';
+      d.onclick=(function(ss, ii){ return function(){ if(ii==0) sac1=ss; else sac2=ss; renderGrid(); updateSummary(); }; })(s, idx);
       wrap.appendChild(d);
     });
   });
 }
-function updateSummary(){ document.getElementById('summary').textContent=sac1.model+' '+sac1.color+' + '+sac2.model+' '+sac2.color; const nom=document.getElementById('oNom').value, tel=document.getElementById('oTel').value, ville=document.getElementById('oVille').value; const msg=`Bonjour NURA, je veux l'offre 2 Sacs = 399 DH - Sac 1: ${sac1.model} ${sac1.color} - Sac 2: ${sac2.model} ${sac2.color} - Nom: ${nom} - Ville: ${ville} - Tel: ${tel} - Livraison 20 DH`; document.getElementById('oWa').href=waLink(msg); }
-['oNom','oTel','oVille'].forEach(id=>document.getElementById(id).addEventListener('input',updateSummary));
-renderGrid(); updateSummary(); }; wrap.appendChild(b);
-    });
-  });
+function updateSummary(){
+  var sum=document.getElementById('summary'); if(sum) sum.textContent=sac1.model+' '+sac1.color+' + '+sac2.model+' '+sac2.color;
+  var nom=document.getElementById('oNom')?document.getElementById('oNom').value:'';
+  var tel=document.getElementById('oTel')?document.getElementById('oTel').value:'';
+  var ville=document.getElementById('oVille')?document.getElementById('oVille').value:'';
+  var msg='Bonjour NURA, je veux offre 2 Sacs 399 DH - Sac1: '+sac1.model+' '+sac1.color+' - Sac2: '+sac2.model+' '+sac2.color+' - Nom: '+nom+' - Ville: '+ville+' - Tel: '+tel+' - Livraison 20 DH';
+  var wa=document.getElementById('oWa'); if(wa) wa.href=waLink(msg);
 }
-function setSac(n,m){ if(n==1){sac1.model=m; sac1.color=COLORS_MAP[m][0]; document.getElementById('s1nour').className='flex-1 border-2 border-black rounded-full py-2 font-bold '+(m=='NOUR'?'bg-black text-white':'bg-white'); document.getElementById('s1lina').className='flex-1 border-2 border-black rounded-full py-2 font-bold '+(m=='LINA'?'bg-black text-white':'bg-white');} else {sac2.model=m; sac2.color=COLORS_MAP[m][0]; document.getElementById('s2nour').className='flex-1 border-2 border-black rounded-full py-2 font-bold '+(m=='NOUR'?'bg-black text-white':'bg-white'); document.getElementById('s2lina').className='flex-1 border-2 border-black rounded-full py-2 font-bold '+(m=='LINA'?'bg-black text-white':'bg-white');} renderColors(); updateSummary(); }
-function updateSummary(){ document.getElementById('summary').textContent=sac1.model+' '+sac1.color+' + '+sac2.model+' '+sac2.color; const nom=document.getElementById('oNom').value, tel=document.getElementById('oTel').value, ville=document.getElementById('oVille').value; const msg=`Bonjour NURA, je veux l'offre 2 Sacs = 399 DH - Sac 1: ${sac1.model} ${sac1.color} - Sac 2: ${sac2.model} ${sac2.color} - Nom: ${nom} - Ville: ${ville} - Tel: ${tel} - Livraison 20 DH partout au Maroc`; document.getElementById('oWa').href=waLink(msg); }
-['oNom','oTel','oVille'].forEach(id=>document.getElementById(id).addEventListener('input',updateSummary));
-renderColors(); updateSummary();
-
-
+['oNom','oTel','oVille'].forEach(function(id){ var el=document.getElementById(id); if(el) el.addEventListener('input', updateSummary); });
+renderGrid(); updateSummary();
 </script></body></html>
