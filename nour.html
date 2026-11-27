@@ -20,7 +20,6 @@ COLORS.forEach((c,i)=>{const b=document.createElement('button');b.className='px-
 document.getElementById('mainImg').src=COLORS[0].img; renderStock();
 function update(){const nom=document.getElementById('nom').value,tel=document.getElementById('tel').value,ville=document.getElementById('ville').value;const msg=`Bonjour NURA, je veux NOUR - Couleur: ${sel.label} - Qty: ${qty} - Prix: ${price} DH - Nom: ${nom} - Ville: ${ville} - Tel: ${tel}`;document.getElementById('waBtn').href=waLink(msg);}
 document.getElementById('q1').onclick=()=>{qty=1;price=249;document.getElementById('q1').className='flex-1 border-2 border-black rounded-2xl p-3 bg-black text-white text-left';update();};
-price=399;document.getElementById('q1').className='flex-1 border-2 border-black rounded-2xl p-3 bg-white text-left';update();};
 ['nom','tel','ville','adresse'].forEach(id=>document.getElementById(id).addEventListener('input',update));update();
 document.getElementById('formBtn').onclick=()=>{saveOrder({model:'NOUR',color:sel.label,qty,price,nom:document.getElementById('nom').value,tel:document.getElementById('tel').value,ville:document.getElementById('ville').value});document.getElementById('msg').textContent='Merci! On va t’appeler pour confirmer.';};
 </script><!-- POPUP OFFRE 2 SACS - GRID 6 IMAGES -->
