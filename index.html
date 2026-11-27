@@ -1,23 +1,4 @@
-<!DOCTYPE html><html lang="fr"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Accueil - NURA</title><script src="https://cdn.tailwindcss.com">
-function openOffer(){document.getElementById('offerPopup').classList.remove('hidden');}
-function closeOffer(){document.getElementById('offerPopup').classList.add('hidden');}
-let sac1={model:'NOUR',color:'Noir'}, sac2={model:'LINA',color:'Beige Clair'};
-const COLORS_MAP={NOUR:['Noir','Bordeaux','Beige'], LINA:['Noir','Marron','Beige Clair']};
-function renderColors(){
-  ['1','2'].forEach(n=>{
-    const wrap=document.getElementById('colors'+n); wrap.innerHTML='';
-    const model = n=='1'?sac1.model:sac2.model;
-    COLORS_MAP[model].forEach(c=>{
-      const b=document.createElement('button'); b.textContent=c; const sel=(n=='1'?sac1.color:sac2.color)==c; b.className='px-3 py-1.5 rounded-full border-2 text-sm font-bold '+(sel?'bg-black text-white border-black':'bg-white border-neutral-300'); b.onclick=()=>{ if(n=='1') sac1.color=c; else sac2.color=c; renderColors(); updateSummary(); }; wrap.appendChild(b);
-    });
-  });
-}
-function setSac(n,m){ if(n==1){sac1.model=m; sac1.color=COLORS_MAP[m][0]; document.getElementById('s1nour').className='flex-1 border-2 border-black rounded-full py-2 font-bold '+(m=='NOUR'?'bg-black text-white':'bg-white'); document.getElementById('s1lina').className='flex-1 border-2 border-black rounded-full py-2 font-bold '+(m=='LINA'?'bg-black text-white':'bg-white');} else {sac2.model=m; sac2.color=COLORS_MAP[m][0]; document.getElementById('s2nour').className='flex-1 border-2 border-black rounded-full py-2 font-bold '+(m=='NOUR'?'bg-black text-white':'bg-white'); document.getElementById('s2lina').className='flex-1 border-2 border-black rounded-full py-2 font-bold '+(m=='LINA'?'bg-black text-white':'bg-white');} renderColors(); updateSummary(); }
-function updateSummary(){ document.getElementById('summary').textContent=sac1.model+' '+sac1.color+' + '+sac2.model+' '+sac2.color; const nom=document.getElementById('oNom').value, tel=document.getElementById('oTel').value, ville=document.getElementById('oVille').value; const msg=`Bonjour NURA, je veux l'offre 2 Sacs = 399 DH - Sac 1: ${sac1.model} ${sac1.color} - Sac 2: ${sac2.model} ${sac2.color} - Nom: ${nom} - Ville: ${ville} - Tel: ${tel} - Livraison 20 DH partout au Maroc`; document.getElementById('oWa').href=waLink(msg); }
-['oNom','oTel','oVille'].forEach(id=>document.getElementById(id).addEventListener('input',updateSummary));
-renderColors(); updateSummary();
-
-</script><link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Inter:wght@500;600;700;800&display=swap" rel="stylesheet"><script src="config.js"></script><style>body{font-family:Inter,sans-serif;background:#FFF7F9}h1,h2,.black{font-family:'Archivo Black',sans-serif}.marquee{animation:m 16s linear infinite}@keyframes m{from{transform:translateX(0)}to{transform:translateX(-50%)}}.card{transition:.3s}.card:hover{transform:translateY(-3px)}.swatch{width:36px;height:36px;border-radius:9999px;border:2px solid white;box-shadow:0 0 0 1.5px #ddd;cursor:pointer}.swatch.active{box-shadow:0 0 0 2.5px #FF2E88}</style></head><body>
+<!DOCTYPE html><html lang="fr"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Accueil - NURA</title><script src="https://cdn.tailwindcss.com"></script><link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Inter:wght@500;600;700;800&display=swap" rel="stylesheet"><script src="config.js"></script><style>body{font-family:Inter,sans-serif;background:#FFF7F9}h1,h2,.black{font-family:'Archivo Black',sans-serif}.marquee{animation:m 16s linear infinite}@keyframes m{from{transform:translateX(0)}to{transform:translateX(-50%)}}.card{transition:.3s}.card:hover{transform:translateY(-3px)}.swatch{width:36px;height:36px;border-radius:9999px;border:2px solid white;box-shadow:0 0 0 1.5px #ddd;cursor:pointer}.swatch.active{box-shadow:0 0 0 2.5px #FF2E88}</style></head><body>
 <header class="flex justify-between items-center px-4 py-3 sticky top-0 bg-white/95 backdrop-blur z-50"><a href="index.html" class="black text-2xl">NURA <span class="text-[#FF2E88]">💖</span></a><div class="flex gap-2"><a href="nour.html" class="bg-black text-white px-3 py-1.5 rounded-full text-sm font-bold">NOUR</a><a href="lina.html" class="bg-black text-white px-3 py-1.5 rounded-full text-sm font-bold">LINA</a></div><a id="waTop" class="bg-green-500 text-white px-3 py-1.5 rounded-full text-sm font-bold">WhatsApp</a></header>
 
 <section class="px-4 pt-5 pb-6 max-w-6xl mx-auto text-center">
@@ -37,6 +18,7 @@ renderColors(); updateSummary();
 <a href="lina.html" class="card bg-white rounded-3xl overflow-hidden border border-neutral-200 shadow-sm"><img src="https://images.unsplash.com/photo-1566150905458-1bf1fc113f0d?w=900&q=80" class="w-full h-64 object-cover"><div class="p-4"><div class="flex justify-between items-center"><h3 class="black text-2xl">LINA</h3><span class="bg-black text-white px-3 py-1 rounded-full font-bold text-sm">249 DH</span></div><p class="text-sm text-neutral-600 mt-1">Chic & spacieux • 25x20cm • 3 couleurs</p><div class="flex gap-1.5 mt-2 items-center"><span class="swatch" style="background:#1A1A1A"></span><span class="swatch" style="background:#7A4A2B"></span><span class="swatch" style="background:#E8DCC8"></span><span class="text-xs ml-1">Noir • Marron • Beige Clair</span></div><div class="bg-[#FF2E88] text-white text-center py-3 rounded-full font-bold mt-3 text-sm">VOIR LINA →</div></div></a>
 </div></section>
 
+<div class="bg-yellow-300 border-2 border-black rounded-xl p-3 text-center font-bold text-sm mt-4 shadow-[3px_3px_0_#000]">🚚 التوصيل 20 درهم في جميع انحاء المغرب<br><span class="text-xs font-semibold">Livraison 20 DH partout au Maroc • Paiement à la livraison 💸</span></div>
 <section class="mx-4 mb-6 bg-black text-white rounded-3xl p-6 text-center"><h2 class="black text-3xl">2 SACS = 399 DH 😱</h2><p class="mt-2 text-white/80 text-sm">Au lieu de 498 DH, tu économises 100 DH. NOUR + LINA.</p><p class="mt-2 text-yellow-300 font-bold text-sm">⏰ Offre: <span id="timer">23:59:59</span></p><button onclick="openOffer()" class="inline-block mt-4 bg-[#FF2E88] text-white px-7 py-3 rounded-full font-bold">JE VEUX LES 2 💖 - CHOISIR MES 2 SACS 👇</button><p class="text-xs mt-2 text-white/70">Tu peux mixer: NOUR Noir + LINA Beige, ou n'importe quelle combinaison 💖</p></section>
 
 <section class="px-4 pb-6 max-w-6xl mx-auto"><h2 class="black text-2xl text-center">QUELLE COULEUR T'ES TOI? 🎨</h2><div class="bg-white rounded-3xl border border-neutral-200 p-4 mt-4 grid md:grid-cols-2 gap-4 items-center"><img id="cImg" src="https://images.unsplash.com/photo-1548036328-c9fa89d128fa?w=900&q=80" class="rounded-2xl w-full h-72 object-cover"><div><h3 id="cName" class="black text-xl">Noir - NOUR 🖤</h3><p class="text-sm text-neutral-600 mt-1">Clique sur une couleur, la photo change vraiment.</p><div class="flex gap-2 mt-3" id="cBtns"></div><p id="cStock" class="text-xs mt-2 text-green-700 font-bold">En stock: 5 pcs</p><a href="nour.html" class="inline-block mt-3 bg-black text-white px-5 py-3 rounded-full font-bold text-sm">COMMANDER CETTE COULEUR</a></div></div></section>
@@ -68,4 +50,24 @@ const cols=[{n:'Noir - NOUR 🖤',img:'https://images.unsplash.com/photo-1548036
 const wb=document.getElementById('cBtns'); cols.forEach((c,i)=>{const b=document.createElement('button');b.className='w-9 h-9 rounded-full border-2 border-white shadow '+(i==0?'ring-2 ring-[#FF2E88]':'');b.style.background=c.n.includes('Noir')?'#1A1A1A':c.n.includes('Bordeaux')?'#6B1D2A':c.n.includes('Marron')?'#7A4A2B':c.n.includes('Beige Clair')?'#E8DCC8':'#D8C3A5';b.title=c.n;b.onclick=()=>{document.getElementById('cImg').src=c.img;document.getElementById('cName').textContent=c.n;document.getElementById('cStock').textContent='En stock: '+c.stock+' pcs';};wb.appendChild(b);});
 document.getElementById('waTop').href=waLink('Bonjour NURA, je veux commander');document.getElementById('waBottom').href=waLink('Bonjour NURA, jai une question');
 let s=86399;setInterval(()=>{s--;const h=String(Math.floor(s/3600)).padStart(2,'0'),m=String(Math.floor(s%3600/60)).padStart(2,'0'),sec=String(s%60).padStart(2,'0');document.getElementById('timer').textContent=`${h}:${m}:${sec}`;},1000);
+</script><script>
+function openOffer(){document.getElementById('offerPopup').classList.remove('hidden');}
+function closeOffer(){document.getElementById('offerPopup').classList.add('hidden');}
+let sac1={model:'NOUR',color:'Noir'}, sac2={model:'LINA',color:'Beige Clair'};
+const COLORS_MAP={NOUR:['Noir','Bordeaux','Beige'], LINA:['Noir','Marron','Beige Clair']};
+function renderColors(){
+  ['1','2'].forEach(n=>{
+    const wrap=document.getElementById('colors'+n); wrap.innerHTML='';
+    const model = n=='1'?sac1.model:sac2.model;
+    COLORS_MAP[model].forEach(c=>{
+      const b=document.createElement('button'); b.textContent=c; const sel=(n=='1'?sac1.color:sac2.color)==c; b.className='px-3 py-1.5 rounded-full border-2 text-sm font-bold '+(sel?'bg-black text-white border-black':'bg-white border-neutral-300'); b.onclick=()=>{ if(n=='1') sac1.color=c; else sac2.color=c; renderColors(); updateSummary(); }; wrap.appendChild(b);
+    });
+  });
+}
+function setSac(n,m){ if(n==1){sac1.model=m; sac1.color=COLORS_MAP[m][0]; document.getElementById('s1nour').className='flex-1 border-2 border-black rounded-full py-2 font-bold '+(m=='NOUR'?'bg-black text-white':'bg-white'); document.getElementById('s1lina').className='flex-1 border-2 border-black rounded-full py-2 font-bold '+(m=='LINA'?'bg-black text-white':'bg-white');} else {sac2.model=m; sac2.color=COLORS_MAP[m][0]; document.getElementById('s2nour').className='flex-1 border-2 border-black rounded-full py-2 font-bold '+(m=='NOUR'?'bg-black text-white':'bg-white'); document.getElementById('s2lina').className='flex-1 border-2 border-black rounded-full py-2 font-bold '+(m=='LINA'?'bg-black text-white':'bg-white');} renderColors(); updateSummary(); }
+function updateSummary(){ document.getElementById('summary').textContent=sac1.model+' '+sac1.color+' + '+sac2.model+' '+sac2.color; const nom=document.getElementById('oNom').value, tel=document.getElementById('oTel').value, ville=document.getElementById('oVille').value; const msg=`Bonjour NURA, je veux l'offre 2 Sacs = 399 DH - Sac 1: ${sac1.model} ${sac1.color} - Sac 2: ${sac2.model} ${sac2.color} - Nom: ${nom} - Ville: ${ville} - Tel: ${tel} - Livraison 20 DH partout au Maroc`; document.getElementById('oWa').href=waLink(msg); }
+['oNom','oTel','oVille'].forEach(id=>document.getElementById(id).addEventListener('input',updateSummary));
+renderColors(); updateSummary();
+
+
 </script></body></html>
